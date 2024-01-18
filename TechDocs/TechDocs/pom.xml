@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--project是pom.xml根元素，它包含了pom.xml的一些约束信息，声明了一些POM相关的命名空间以及xsd元素-->
+<!-- xmlns  命名空间，类似包名-->
+<!-- xmlns:xsi	xml遵循的标签规范-->
+<!--xsi:schemaLocation	定义xmlschema的地址，xml书写时需要遵循的语法-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<!-- 指定了当前pom.xml版本，目前固定为4.0.0版本。-->
+<modelVersion>4.0.0</modelVersion>
+<!--  坐标  -->
+<!--  属于哪个组，一般是项目所在组织或公司域名的倒序  -->
+<groupId>com.sx.kak</groupId>
+<!--  定义当前项目在组中的唯一ID，一个groupId下面可能多个项目，就是靠artifactId来区分的 -->
+<artifactId>nacospro</artifactId>
+<!--  定义项目当前的版本  -->
+<version>1.0-SNAPSHOT</version>
+<!--  打包类型，可取值：pom , jar , maven-plugin , ejb , war , ear , rar , par等等  -->
+<packaging>jar</packaging>
+<!--  项目的名称（可省略） 默认artifactId，可修改为用户友好的名称 -->
+<name>nacospro</name>
+<!--  仓库的地址（可省略）  -->
+<url>http://maven.apache.org</url>
+
+<build>
+    <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+            <includes>
+                <include>**/*.txt</include> <!-- 根据实际文件类型进行配置 -->
+            </includes>
+        </resource>
+        <resource>
+            <directory>src/test/resources</directory>
+            <includes>
+                <include>**/*.txt</include> <!-- 根据实际文件类型进行配置 -->
+            </includes>
+        </resource>
+    </resources>
+</build>
+<!--定义的依赖清单，有所依赖包都需要写在这个标签里面-->
+<dependencies>
+    <!-- ansj分词插件依赖 -->
+    <maven:dependency xmlns:maven="http://maven.apache.org/POM/4.0.0">
+        <maven:groupId>org.ansj</maven:groupId>
+        <maven:artifactId>ansj_seg</maven:artifactId>
+        <maven:version>5.1.6</maven:version>
+    </maven:dependency>
+
+    <!-- tree_split -->
+    <maven:dependency xmlns:maven="http://maven.apache.org/POM/4.0.0">
+        <maven:groupId>org.ansj</maven:groupId>
+        <maven:artifactId>tree_split</maven:artifactId>
+        <maven:version>1.5</maven:version>
+    </maven:dependency>
+
+    <!-- nlp-lang -->
+    <maven:dependency xmlns:maven="http://maven.apache.org/POM/4.0.0">
+        <maven:groupId>org.nlpcn</maven:groupId>
+        <maven:artifactId>nlp-lang</maven:artifactId>
+        <maven:version>1.7.7</maven:version>
+    </maven:dependency>
+
+    <dependency>
+        <groupId>org.wltea.ik-analyzer</groupId>
+        <artifactId>ik-analyzer</artifactId>
+        <version>8.5.0</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.ansj</groupId>
+        <artifactId>ansj_seg</artifactId>
+        <version>5.1.5</version> <!-- Use the latest version available -->
+    </dependency>
+
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.13.2</version> <!-- 根据最新版本调整 -->
+        <scope>test</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>org.apache.lucene</groupId>
+        <artifactId>lucene-core</artifactId>
+        <version>8.11.2</version> <!-- 根据实际需要调整版本号 -->
+    </dependency>
+    <dependency>
+        <groupId>org.apache.lucene</groupId>
+        <artifactId>lucene-queryparser</artifactId>
+        <version>8.11.2</version> <!-- 根据实际需要调整版本号 -->
+    </dependency>
+</dependencies>
+
+
+</project>
